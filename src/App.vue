@@ -15,7 +15,7 @@
           font-size="70"
         >
           <tspan fill="#000">GoTo</tspan>
-          <tspan fill="#0099FF">Baek</tspan>
+          <tspan fill="#0099FF">Bae/<</tspan>
           <tspan fill="#000">joon</tspan>
         </text>
       </svg>
@@ -25,7 +25,7 @@
       <input
         type="text"
         v-model="problemNumber"
-        placeholder="문제 번호 입력"
+        placeholder="문제 번호 입력(1000 ~ 33882)"
         @keyup.enter="goToProblem"
       />
       <button @click="goToProblem">이동</button>
@@ -80,7 +80,7 @@ export default {
       }
 
       if (problemNum < 1000 || problemNum > 33882) {
-        this.showError("1000~33882 범위의 문제 번호를 입력하세요");
+        this.showError("올바른 범위의 문제 번호를 입력하세요");
         return;
       }
 
@@ -131,12 +131,15 @@ export default {
   width: 300px;
   padding: 16px;
   font-family: "BMHANNA", sans-serif;
+  background-color: #ffffff;
 }
 
 h1 {
   font-size: 18px;
   margin-bottom: 8px;
   text-align: center;
+  display: absolute;
+  justify-content: center;
 }
 
 .input-group {
@@ -193,14 +196,21 @@ button {
 /* 에러 메시지 스타일 */
 .error-message {
   color: #e53e3e;
-  font-size: 12px;
-  margin-top: 6px;
+  font-size: 14px;
   padding: 4px 8px;
   background-color: #fff5f5;
   border-left: 4px solid #e53e3e;
   border-radius: 3px;
-  animation: fadeIn 0.3s ease;
+  animation: fadeIn 0.5s ease;
+  display: flex;
+  justify-content: center;
+  white-space: nowrap;           /* ✅ 줄바꿈 방지 */
+  width: fit-content;            /* ✅ 내용 길이에 맞게 너비 조절 */
+  max-width: 100%;               /* ✅ 너무 길어질 경우 부모 영역을 넘지 않도록 */
+  overflow: hidden;              /* ✅ 넘치는 텍스트 숨김 처리 */
+  text-overflow: ellipsis;       /* ✅ 너무 길면 말줄임표(...) */
 }
+
 
 @keyframes fadeIn {
   from {
