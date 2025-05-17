@@ -1,6 +1,6 @@
 # goToBoj
 
-This template should help get you started developing with Vue 3 in Vite.
+백준 문제 번호를 입력 시 해당 문제로 바로 이동동
 
 ## Recommended IDE Setup
 
@@ -27,3 +27,11 @@ npm run dev
 ```sh
 npm run build
 ```
+
+## How To Use
+
+![alt text](image.png)
+
+해당 문제에 번호 입력
+
+하단의 주사위는 클릭시 랜덤 문제로 이동동
