@@ -25,6 +25,7 @@
       <input
         type="text"
         v-model="problemNumber"
+        ref = "problemInput"
         placeholder="문제 번호 입력(1000 ~ 33882)"
         @keyup.enter="goToProblem"
       />
@@ -63,6 +64,10 @@ export default {
       problemNumber: "",
       errorMessage: "",
     };
+  },
+  mounted(){
+    //포커스
+    this.$refs.problemInput?.focus();
   },
   methods: {
     goToProblem() {
